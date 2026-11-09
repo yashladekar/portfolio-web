@@ -37,7 +37,8 @@
 
 /* ------------------------------------------------------------------ */
 /*  Color — two prints of one poster                                   */
-/*  light: bone paper · dark: cobalt field. Volt is the constant band  */
+/*  light: bone page · ink nav · volt heritage bands                   */
+/*  dark:  cobalt page · bone poster bands · volt mark and accents     */
 /* ------------------------------------------------------------------ */
 
 :root {
@@ -53,6 +54,16 @@
   --accent: oklch(0.4 0.19 264);
   --accent-contrast: oklch(0.952 0.014 92);
   --ring: oklch(0.4 0.19 264);
+
+  /* surfaces */
+  --nav: var(--ink);
+  --nav-ink: var(--paper);
+  --band: var(--volt);
+  --band-ink: var(--volt-ink);
+  --ticker: var(--ink);
+  --ticker-ink: var(--paper);
+  --mark-bg: var(--volt-ink);
+  --mark-fg: var(--volt);
 
   --radius: 0;
 }
@@ -70,6 +81,16 @@
   --accent: oklch(0.9 0.19 110);
   --accent-contrast: oklch(0.185 0.045 264);
   --ring: oklch(0.9 0.19 110);
+
+  /* surfaces — dark print: cobalt field, bone strip, volt mark */
+  --nav: var(--paper);
+  --nav-ink: var(--ink);
+  --band: var(--paper);
+  --band-ink: var(--ink);
+  --ticker: var(--ink);
+  --ticker-ink: var(--paper);
+  --mark-bg: var(--volt);
+  --mark-fg: var(--volt-ink);
 }
 
 @theme inline {
@@ -83,6 +104,12 @@
   --color-accent: var(--accent);
   --color-accent-contrast: var(--accent-contrast);
   --color-ring: var(--ring);
+  --color-nav: var(--nav);
+  --color-nav-ink: var(--nav-ink);
+  --color-band: var(--band);
+  --color-band-ink: var(--band-ink);
+  --color-ticker: var(--ticker);
+  --color-ticker-ink: var(--ticker-ink);
 }
 
 /* ------------------------------------------------------------------ */
@@ -133,12 +160,12 @@
   }
 
   /* focus rings against inverted bands */
-  .band-ink :focus-visible {
-    outline-color: var(--paper);
+  .band-nav :focus-visible {
+    outline-color: var(--nav-ink);
   }
 
-  .band-volt :focus-visible {
-    outline-color: var(--volt-ink);
+  .band-surface :focus-visible {
+    outline-color: var(--band-ink);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -181,8 +208,8 @@
 
   /* inverted block inside display type */
   .block-mark {
-    background-color: var(--volt-ink);
-    color: var(--volt);
+    background-color: var(--mark-bg);
+    color: var(--mark-fg);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
     padding: 0.02em 0.12em;

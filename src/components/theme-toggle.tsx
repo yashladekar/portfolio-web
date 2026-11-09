@@ -11,7 +11,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className="label flex min-h-11 min-w-11 items-center justify-center gap-2 border-[3px] border-paper px-3 text-paper transition-colors hover:bg-paper hover:text-ink sm:px-4"
+      className="label flex min-h-11 min-w-11 items-center justify-center gap-2 border-[3px] border-nav-ink px-3 text-nav-ink transition-colors hover:bg-nav-ink hover:text-nav sm:px-4"
     >
       <Icons.Moon className="size-4 dark:hidden" />
       <Icons.Sun className="hidden size-4 dark:block" />

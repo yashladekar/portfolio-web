@@ -37,13 +37,13 @@ const heroLinks = [
 export default function Home() {
   return (
     <>
-      {/* Hero — volt field */}
-      <section className="band-volt bg-volt text-volt-ink">
+      {/* Hero — poster band */}
+      <section className="band-surface bg-band text-band-ink">
         <div className="mx-auto flex w-full max-w-[1600px] flex-col px-4 pb-12 pt-10 md:min-h-[86svh] md:justify-between md:px-8 md:pb-10 md:pt-14">
           <div className="flex items-center justify-between gap-4" data-reveal>
-            <p className="label text-volt-ink/70">Portfolio · 2026</p>
-            <p className="label flex items-center gap-2.5 text-volt-ink/70">
-              <span aria-hidden="true" className="size-2 bg-volt-ink" />
+            <p className="label text-band-ink/70">Portfolio · 2026</p>
+            <p className="label flex items-center gap-2.5 text-band-ink/70">
+              <span aria-hidden="true" className="size-2 bg-band-ink" />
               Open to work
             </p>
           </div>
@@ -66,9 +66,9 @@ export default function Home() {
                 {facts.map((fact) => (
                   <div
                     key={fact.label}
-                    className="flex items-baseline justify-between gap-6 border-t-[3px] border-volt-ink/25 py-3.5"
+                    className="flex items-baseline justify-between gap-6 border-t-[3px] border-band-ink/25 py-3.5"
                   >
-                    <dt className="label text-volt-ink/70">{fact.label}</dt>
+                    <dt className="label text-band-ink/70">{fact.label}</dt>
                     <dd className="font-medium">{fact.value}</dd>
                   </div>
                 ))}
@@ -86,7 +86,7 @@ export default function Home() {
                   {...(href.startsWith("mailto")
                     ? {}
                     : { target: "_blank", rel: "noreferrer noopener" })}
-                  className="label flex min-h-11 items-center justify-center gap-2 border-[3px] border-volt-ink px-4 transition-colors hover:bg-volt-ink hover:text-volt sm:justify-start"
+                  className="label flex min-h-11 items-center justify-center gap-2 border-[3px] border-band-ink px-4 transition-colors hover:bg-band-ink hover:text-band sm:justify-start"
                 >
                   {title}
                   <span aria-hidden="true">↗</span>
@@ -96,10 +96,10 @@ export default function Home() {
           </div>
 
           <div className="mt-16 flex items-end justify-between" data-reveal>
-            <p className="label text-volt-ink/70">Scroll ↓</p>
-            <p className="label flex items-center gap-3 text-volt-ink/70">
+            <p className="label text-band-ink/70">Scroll ↓</p>
+            <p className="label flex items-center gap-3 text-band-ink/70">
               <LocalClock />
-              <span aria-hidden="true" className="size-2 bg-volt-ink" />
+              <span aria-hidden="true" className="size-2 bg-band-ink" />
               IST
             </p>
           </div>
@@ -109,7 +109,7 @@ export default function Home() {
       {/* Ticker */}
       <section
         aria-label="Core technologies"
-        className="band-ink bg-ink py-4 text-paper"
+        className="border-y-[3px] border-line bg-ticker py-4 text-ticker-ink"
       >
         <div className="ticker" style={{ ["--ticker-duration" as string]: "54s" }}>
           {[0, 1].map((copy) => (
@@ -121,7 +121,7 @@ export default function Home() {
               {stackStrip.map((item) => (
                 <span
                   key={item}
-                  className="label flex items-center gap-6 text-paper/80"
+                  className="label flex items-center gap-6 text-ticker-ink/80"
                 >
                   <span className="whitespace-nowrap">{item}</span>
                   <span aria-hidden="true" className="size-1.5 shrink-0 bg-volt" />

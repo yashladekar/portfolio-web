@@ -63,7 +63,7 @@ export default function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="band-ink sticky top-0 z-50 bg-ink text-paper">
+    <header className="band-nav sticky top-0 z-50 border-b-[3px] border-line bg-nav text-nav-ink">
       <div
         id="site-bar"
         className="mx-auto flex h-14 w-full max-w-[1600px] items-center justify-between gap-4 px-4 md:h-16 md:px-8"
@@ -93,14 +93,16 @@ export default function SiteHeader() {
                     aria-current={active ? "page" : undefined}
                     className={cn(
                       "label relative flex min-h-11 items-center gap-2 px-4 transition-colors",
-                      active ? "text-paper" : "text-paper/75 hover:text-paper"
+                      active
+                        ? "text-nav-ink"
+                        : "text-nav-ink/75 hover:text-nav-ink"
                     )}
                   >
                     <span
                       aria-hidden="true"
                       className={cn(
                         "text-[0.625rem]",
-                        active ? "text-volt" : "text-paper/40"
+                        active ? "text-volt" : "text-nav-ink/40"
                       )}
                     >
                       {item.n}
@@ -127,7 +129,7 @@ export default function SiteHeader() {
             onClick={() => setOpen(true)}
             aria-expanded={open}
             aria-controls="site-menu"
-            className="label flex min-h-11 items-center border-[3px] border-paper px-4 text-paper transition-colors hover:bg-paper hover:text-ink md:hidden"
+            className="label flex min-h-11 items-center border-[3px] border-nav-ink px-4 text-nav-ink transition-colors hover:bg-nav-ink hover:text-nav md:hidden"
           >
             Menu
           </button>
@@ -137,10 +139,10 @@ export default function SiteHeader() {
       {open && (
         <div
           id="site-menu"
-          className="band-volt fixed inset-0 z-[70] flex flex-col bg-volt text-volt-ink duration-200 animate-in fade-in md:hidden"
+          className="band-surface fixed inset-0 z-[70] flex flex-col bg-band text-band-ink duration-200 animate-in fade-in md:hidden"
         >
-          <div className="flex h-14 shrink-0 items-center justify-between border-b-[3px] border-volt-ink/25 px-4">
-            <span className="label text-volt-ink/70">Menu</span>
+          <div className="flex h-14 shrink-0 items-center justify-between border-b-[3px] border-band-ink/25 px-4">
+            <span className="label text-band-ink/70">Menu</span>
             <button
               ref={closeRef}
               type="button"
@@ -148,7 +150,7 @@ export default function SiteHeader() {
                 restoreFocusRef.current = true;
                 setOpen(false);
               }}
-              className="label flex min-h-11 items-center border-[3px] border-volt-ink px-4 transition-colors hover:bg-volt-ink hover:text-volt"
+              className="label flex min-h-11 items-center border-[3px] border-band-ink px-4 transition-colors hover:bg-band-ink hover:text-band"
             >
               Close
             </button>
@@ -162,7 +164,7 @@ export default function SiteHeader() {
               {navItems.map((item) => (
                 <li
                   key={item.title}
-                  className="border-t-[3px] border-volt-ink/25 first:border-t-0"
+                  className="border-t-[3px] border-band-ink/25 first:border-t-0"
                 >
                   <Link
                     href={item.href}
@@ -170,15 +172,15 @@ export default function SiteHeader() {
                     className="flex min-h-[92px] items-center justify-between gap-4 py-4"
                   >
                     <span className="display text-5xl">{item.title}</span>
-                    <span className="label text-volt-ink/70">{item.n}</span>
+                    <span className="label text-band-ink/70">{item.n}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <div className="shrink-0 border-t-[3px] border-volt-ink/25 px-4 py-6">
-            <p className="label text-volt-ink/70">{siteConfig.author.email}</p>
+          <div className="shrink-0 border-t-[3px] border-band-ink/25 px-4 py-6">
+            <p className="label text-band-ink/70">{siteConfig.author.email}</p>
           </div>
         </div>
       )}
