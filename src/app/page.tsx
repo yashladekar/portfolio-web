@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { siteConfig } from "@/config";
@@ -156,31 +157,54 @@ export default function Home() {
         </ul>
       </section>
 
-      {/* Experience */}
+      {/* Work experience */}
       <section className="mx-auto w-full max-w-[1600px] px-4 pb-4 pt-20 md:px-8 md:pt-28">
         <p className="label text-accent" data-reveal>
           02 · Experience
         </p>
+        <h2 className="display mt-4 text-h2" data-reveal>
+          Work experience
+        </h2>
 
         <div className="mt-8" data-reveal>
           {jobs.map((job) => (
             <div key={job.title} className="spec">
-              <h3 className="label text-muted">{job.title}</h3>
-              <div>
-                <p className="display text-h3">{job.jobTitle}</p>
-                <p className="mt-4 max-w-[58ch] text-sm leading-relaxed text-muted">
-                  {job.description}
-                </p>
+              <h3 className="label text-muted">Company</h3>
+
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
+                <a
+                  href={job.url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label={`${job.title} website`}
+                  className="grid h-20 w-32 shrink-0 place-items-center border-[3px] border-line bg-white p-2.5 transition-colors hover:border-ink"
+                >
+                  <Image
+                    src={job.logo}
+                    alt={`${job.title} logo`}
+                    width={112}
+                    height={72}
+                    className={
+                      job.isTransparent
+                        ? "h-full w-full object-contain"
+                        : "h-full w-full object-cover"
+                    }
+                  />
+                </a>
+
+                <div>
+                  <p className="display text-h3">{job.title}</p>
+                  <p className="mt-1.5 font-medium">{job.jobTitle}</p>
+                  <p className="label mt-3 text-muted">
+                    {job.startDate ? `${job.startDate} → Now` : "Current role"}
+                  </p>
+                  <p className="mt-4 max-w-[58ch] text-sm leading-relaxed text-muted">
+                    {job.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
-
-          <div className="spec">
-            <p className="label text-muted">Period</p>
-            <p className="font-medium">
-              {jobs[0]?.startDate ? `${jobs[0].startDate} → Now` : "Current role"}
-            </p>
-          </div>
 
           <div className="spec">
             <p className="label text-muted">Open source</p>
