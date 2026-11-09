@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   other: {
-    "google-adsense-account": "xxxxxxxxx",
+    "google-adsense-account": "ca-pub-3667892882841476",
   },
   openGraph: {
     title: siteConfig.name,
