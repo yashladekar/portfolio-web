@@ -2,135 +2,106 @@ import { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
-    name: "Infinitunes",
-    slug: "infinitunes",
-    logo: "https://raw.githubusercontent.com/rajput-hemant/infinitunes/master/public/images/logo1920.png",
+    name: "Lattice",
+    slug: "lattice",
+    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
     tagline:
-      "Music Player Web App made with Next.js 13, TypeScript, TailwindCSS",
+      "A local-first knowledge OS — block editor, infinite whiteboard, typed knowledge graph, spaced repetition and an optional AI layer. Web, desktop and mobile.",
     description:
-      "🎵 A Simple Music Player Web App made with Next.js 13, TypeScript, TailwindCSS & Unofficial JioSaavn API",
+      "Lattice combines a block editor, an infinite whiteboard, a typed knowledge graph, a capture inbox, spaced-repetition learning and an optional AI layer into one local-first workspace that runs on the web, as a Tauri desktop app and through an Expo mobile companion.",
     projectUrl: {
-      github: "https://github.com/rajput-hemant/infinitunes",
-      live: "https://infinitunes.vercel.app/",
+      github: "https://github.com/yashladekar/lattice",
     },
   },
 
   {
-    name: "Calculator",
-    slug: "calculator",
-    logo: "https://raw.githubusercontent.com/rajput-hemant/calculator/master/assets/images/app_icon.png",
+    name: "ReelForge",
+    slug: "reelforge",
+    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
     tagline:
-      "Calculator app with Currency (Exchange Rate) and Unit Converter made with Flutter.",
+      "AI faceless-reels studio: topic → script → scenes → narration → captions → FFmpeg render → publish, with budgets and checkpointed retries.",
     description:
-      "A Simple but elegant Calculator app made with Flutter using Google's Material Design with Currency (Exchange Rate) and Unit Converter. ",
+      "A local-first, cost-aware creator workspace that turns a topic into a validated vertical short video — background jobs, provider adapters, budget accounting, a Video Studio for review and a Publishing Center for YouTube and manual exports.",
     projectUrl: {
-      github: "https://github.com/rajput-hemant/calculator",
+      github: "https://github.com/yashladekar/video-generator",
     },
   },
 
   {
-    name: "JioSaavn API (TypeScript)",
-    slug: "jiosaavn-api-ts",
-    logo: "https://raw.githubusercontent.com/rajput-hemant/jiosaavn-api-ts/master/public/jiosaavn-2.png",
-    tagline: "Unofficial JioSaavn API made with TypeScript",
-    description: "Unofficial JioSaavn API made with TypeScript",
-    projectUrl: {
-      github: "https://github.com//rajput-hemant/jiosaavn-api-ts",
-      live: "https://jiosaavn-api-ts.vercel.app/",
-    },
-  },
-
-  {
-    name: "JioSaavn API (Rust)",
-    slug: "jiosaavn-api-rs",
-    logo: "https://raw.githubusercontent.com/rajput-hemant/jiosaavn-api-rs/master/public/jiosaavn-2.png",
-    tagline: "Unofficial JioSaavn API written in Rust programming language 🦀",
-    description:
-      "Unofficial JioSaavn API written in Rust programming language 🦀",
-    projectUrl: {
-      github: "https://github.com//rajput-hemant/jiosaavn-api-rs",
-      live: "https://jiosaavn-api-rs.vercel.app/",
-    },
-  },
-
-  {
-    name: "Three.js Journey",
-    slug: "threejs-journey",
-    logo: "https://raw.githubusercontent.com/rajput-hemant/threejs-journey/master/assets/images/threejs.png",
+    name: "AFTERMARKET",
+    slug: "aftermarket",
+    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg",
     tagline:
-      "Practice projects w/ source-code for Three.js course by Bruno Simon",
+      "Enterprise monorepo: a Spring Boot + Flowable process backend with a Next.js front end, sharing UI, ESLint and TypeScript configs.",
     description:
-      "Practice projects w/ source-code for Three.js course by Bruno Simon",
+      "A pnpm + Turborepo workspace for the AFTERMARKET project — a Java backend running embedded Flowable against an MCI reference schema, paired with a React 19 / Tailwind v4 web app.",
     projectUrl: {
-      github: "https://github.com/rajput-hemant/threejs-journey",
-      live: "https://threejs-journey-master.vercel.app/",
+      github: "https://github.com/yashladekar/aftermarket",
     },
   },
 
   {
-    name: "leetcode",
-    slug: "leetcode",
-    logo: "https://graph.org/file/1a2b953e82e915ad29f68.png",
+    name: "FGAC Reference App",
+    slug: "fgac-reference-app",
+    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/graphql/graphql-plain.svg",
     tagline:
-      "Curated solutions to Leetcode problems in multiple languages to ace the Coding Interviews.",
+      "Multi-tenant SaaS where OpenFGA is the single source of authorization truth — the UI projects itself from the user's permissions.",
     description:
-      "Curated solutions to Leetcode problems in multiple languages to ace the Coding Interviews.",
+      "The same app looks and behaves differently for an Owner, Admin, Project Editor and Project Viewer: different navigation, routes, actions and data — unauthorized resources never leave the server. Built in a Next.js App Router + shadcn/ui Turborepo with Better Auth and Prisma.",
     projectUrl: {
-      github: "https://github.code/rajput-hemant/leetcode",
-      live: "https://rajput-hemant.github.io/leetcode/",
+      github: "https://github.com/yashladekar/gql-next-monorepo",
     },
   },
 
   {
-    name: "Next.js Template",
-    slug: "nextjs-template",
-    logo: "https://raw.githubusercontent.com/rajput-hemant/nextjs-template/master/public/nextjs-light.svg",
+    name: "Aethon",
+    slug: "aethon",
+    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
     tagline:
-      "A Minimal Next.js Starter Template with TypeScript, Tailwind CSS, and pre-configured with ESLint, Prettier, and Husky.",
+      "A graph-first developer operating system: roadmap navigation, adaptive practice, immersive sandboxes and an AI mentor.",
     description:
-      "A Minimal Next.js Starter Template with TypeScript, Tailwind CSS, and pre-configured with ESLint, Prettier, and Husky.",
+      "An interactive learning platform built as a monorepo — learner web app, docs, a server with tRPC contracts and AI orchestration, admin tooling, and shared auth and Prisma packages.",
     projectUrl: {
-      github: "https://github.com/rajput-hemant/nextjs-template",
-      live: "https://nextjs-template-zero.vercel.app/",
+      github: "https://github.com/yashladekar/Aethon",
     },
   },
 
   {
-    name: "React Template Vite",
-    slug: "react-template-vite",
-    logo: "https://raw.githubusercontent.com/rajput-hemant/react-template-vite/master/public/react.svg",
+    name: "plateEditor",
+    slug: "plate-editor",
+    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg",
     tagline:
-      "A Minimal ⚛️ React Starter Template with Vite, TailwindCSS, and Typescript pre-configured with ESLint, Prettier and Husky.",
+      "A rich-text editing playground built on Plate (Slate) inside a modern Next.js + shadcn/ui app.",
     description:
-      "A Minimal ⚛️ React Starter Template with Vite, TailwindCSS, and Typescript pre-configured with ESLint, Prettier and Husky.",
+      "An exploration of block rich-text editing on top of Plate and Slate — editor toolbars, slash-style menus and structured documents inside a Next.js app.",
     projectUrl: {
-      github: "https://github.com/rajput-hemant/react-template-vite",
-      live: "https://react-template-vite-zero.vercel.app/",
+      github: "https://github.com/yashladekar/plateEditor",
     },
   },
 
   {
-    name: "Advent of Code (Rust)",
-    slug: "advent-of-code",
-    logo: "https://raw.githubusercontent.com/rajput-hemant/advent-of-code/master/assets/advent-of-code.png",
-    tagline: "🎄 Advent of Code solutions in Rust programming language 🦀",
-    description: "🎄 Advent of Code solutions in Rust programming language 🦀",
-    projectUrl: {
-      github: "https://github.com/rajput-hemant/advent-of-code",
-    },
-  },
-
-  {
-    name: "Hashira",
-    slug: "hashira",
-    logo: "https://raw.githubusercontent.com/rajput-hemant/nextjs-template/master/public/nextjs-light.svg",
+    name: "Rental Design System",
+    slug: "rental-design-system",
+    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg",
     tagline:
-      "Ad-free Anime & Manga Streaming web app with a vast library of movies and TV shows, allowing users to easily search and create watchlists.",
+      "Shared UI kit, components and theme tokens behind my rental and fleet products.",
     description:
-      "Ad-free Anime & Manga Streaming web app with a vast library of movies and TV shows, allowing users to easily search and create watchlists.",
+      "A Next.js design system package that centralises components, theming and styling conventions so rental and fleet applications stay visually consistent.",
     projectUrl: {
-      github: "https://github.com/rajput-hemant/hashira",
-      live: "https://hashira.vercel.app/",
+      github: "https://github.com/yashladekar/rental-design-system",
+    },
+  },
+
+  {
+    name: "FleetHub",
+    slug: "fleethub",
+    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+    tagline:
+      "Rental-fleet operations front end wired to an existing SSO/session backend with JWT cookie auth.",
+    description:
+      "A Next.js front end (FleetHub) integrated with an existing SSO/session flow — configurable app identity, JWT session cookie handling, and login and logout wiring.",
+    projectUrl: {
+      github: "https://github.com/yashladekar/production-rental-2",
     },
   },
 ];

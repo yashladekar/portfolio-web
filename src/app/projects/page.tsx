@@ -3,13 +3,13 @@ import Image from "next/image";
 import { Eye } from "lucide-react";
 
 import { projects } from "@/config/constants";
-import { siteConfig } from "@/config/";
+import { siteConfig } from "@/config";
 
 export const metadata: Metadata = {
-    title: `Project | ${siteConfig.author.name}`,
+    title: "Projects",
     description: `Explore projects built by ${siteConfig.author.name}`,
     openGraph: {
-        title: `Project | ${siteConfig.author.name}`,
+        title: `Projects | ${siteConfig.author.name}`,
         url: `${siteConfig.url}/projects`,
         description: `Explore projects built by ${siteConfig.author.name}`,
     },
@@ -46,6 +46,7 @@ export default function Projects() {
                                 width={60}
                                 height={60}
                                 alt={name}
+                                unoptimized
                                 className="h-16 w-16 rounded-md bg-foreground/5 object-contain p-2 duration-300 group-hover:bg-foreground/10"
                             />
 
@@ -54,13 +55,9 @@ export default function Projects() {
                                     <h2 className="mb-1 text-lg tracking-wide">{name}</h2>
 
                                     {live && (
-                                        <a
-                                            href={live}
-                                            target="_blank"
-                                            className="z-10 my-auto -mt-1 rounded-md border border-transparent p-1 text-foreground/50 duration-300 hover:border-border hover:text-foreground"
-                                        >
+                                        <span className="z-10 my-auto -mt-1 rounded-md border border-transparent p-1 text-foreground/50 duration-300 group-hover:border-border group-hover:text-foreground">
                                             <Eye className="h-5 w-5" />
-                                        </a>
+                                        </span>
                                     )}
                                 </div>
 

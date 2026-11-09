@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config";
 
 type Props = {
   className?: string;
@@ -12,7 +13,9 @@ const Footer = ({ className }: Props) => {
         className
       )}
     >
-      <div>© {new Date().getFullYear()} by yashladekar@github</div>
+      <div>
+        © {new Date().getFullYear()} {siteConfig.author.name}
+      </div>
     </div>
   );
 };

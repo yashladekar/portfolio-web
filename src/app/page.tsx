@@ -12,10 +12,11 @@ export default function Home() {
             Software engineer & <br />
             open-source enthusiast
           </h1>
-          <p className="text-base leading-relaxed text-foreground/60" >
-            I&apos;m a software engineer based form India. I&apos;m passionate
-            about building software products that solve real-world problems and
-            contribute to the open-source community.
+          <p className="text-base leading-relaxed text-foreground/60">
+            I&apos;m a full-stack software engineer based in India. I love
+            building products end to end — from local-first knowledge tools to
+            AI video pipelines — and contributing back to the open-source
+            community.
           </p>
 
           <ul className="my-10 flex flex-wrap items-center gap-x-5 gap-y-4 duration-700 animate-in slide-in-from-bottom-full">
@@ -57,11 +58,15 @@ export default function Home() {
                 href={data.url}
                 rel="noreferrer noopener"
                 target="_blank"
-                className={`relative grid min-h-[80px] min-w-[80px] place-items-center text-clip rounded-md border border-border p-2  bg-secondary/50 bg-white }`}
+                className={`relative grid min-h-[80px] min-w-[80px] place-items-center text-clip rounded-md border border-border p-2 ${
+                  data.isTransparent ? "bg-white" : "bg-secondary/50"
+                }`}
               >
                 <Image
                   src={data.logo}
-                  className={`object-cover duration-300  }`}
+                  className={`duration-300 ${
+                    data.isTransparent ? "object-contain" : "object-cover"
+                  }`}
                   alt={`${data.title} logo`}
                   width={50}
                   height={50}
@@ -74,7 +79,7 @@ export default function Home() {
                 <p>{data.jobTitle}</p>
 
                 <time className="mt-2 text-sm uppercase tracking-widest text-foreground/40">
-                  {data.startDate} -{" "}
+                  {data.startDate && `${data.startDate} - `}
                   {data.endDate ? (
                     data.endDate
                   ) : (

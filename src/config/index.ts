@@ -1,13 +1,13 @@
 export const siteConfig = {
     name: "Yash Ladekar | Software Developer",
-    description: "Yash Ladekar is a Software Developer who is passionate about building software products that solve real-world problems and contribute to the open-source community.",
+    description: "Yash Ladekar is a full-stack developer from India who builds products that solve real-world problems — from local-first knowledge tools to AI video pipelines — and contributes to the open-source community.",
     url: "https://yashladekar.com",
 
     author: {
         name: "Yash Ladekar",
         email: "yashladekar001@gmail.com",
-        bio: "Software Developer",
-        description: "I'm a software engineer based from India. I'm passionate about building software products that solve real-world problems and contribute to the open-source community.",
+        bio: "Full-Stack Developer",
+        description: "I'm a full-stack software engineer based in India. I'm passionate about building software products that solve real-world problems and contribute to the open-source community.",
     },
     links: {
         github: {
@@ -22,16 +22,10 @@ export const siteConfig = {
             // icon: Icons.LinkedIn,
         },
 
-        twitter: {
+        medium: {
             title: "Medium",
             href: "https://medium.com/@yashladekar001",
             // icon: Icons.Twitter,
         },
-
-        // stackoverflow: {
-        //     title: "Stackoverflow",
-        //     href: "https://stackoverflow.com/users/20652038/rajput-hemant",
-        //     // icon: Icons.StackOverFlow,
-        // },
     },
 };

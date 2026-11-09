@@ -6,8 +6,10 @@ import { Icons } from "@/components/icons/icons";
 const {
   Chrome,
   Github,
+  Java,
   JavaScript,
   NextJs,
+  Python,
   React,
   Rust,
   TypeScript,
@@ -49,6 +51,20 @@ export const tools: Tool[] = [
         description: "Superset of JavaScript with static type-checking",
         url: "https://www.typescriptlang.org/",
         icon: TypeScript,
+      },
+      {
+        name: "Java",
+        description:
+          "The language powering robust, scalable enterprise backends",
+        url: "https://dev.java/",
+        icon: Java,
+      },
+      {
+        name: "Python",
+        description:
+          "A language that lets you work quickly and integrate systems more effectively",
+        url: "https://www.python.org/",
+        icon: Python,
       },
       {
         name: "Rust",

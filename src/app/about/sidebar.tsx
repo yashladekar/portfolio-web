@@ -18,7 +18,7 @@ const AboutSidebar = () => {
                         width={400}
                         height={400}
                         quality={100}
-                        alt="Hemant Rajput"
+                        alt={siteConfig.author.name}
                         priority
                         className="scale-105 object-cover duration-300 hover:scale-110"
                     />
