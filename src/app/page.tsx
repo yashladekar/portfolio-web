@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { siteConfig } from "@/config";
@@ -137,7 +138,10 @@ export default function Home() {
         <div className="mx-auto grid w-full max-w-[1440px] gap-12 px-5 py-16 md:grid-cols-[minmax(0,1fr)_2fr] md:px-10 md:py-24">
           <div data-reveal>
             <p className="label text-muted-foreground">02 — Experience</p>
-            <p className="mt-6 max-w-[28ch] text-sm text-foreground/70">
+            <h2 className="mt-4 text-h2 font-display font-semibold">
+              Work experience
+            </h2>
+            <p className="mt-4 max-w-[28ch] text-sm text-foreground/70">
               Enterprise software by day, open source the rest of the time.
             </p>
           </div>
@@ -146,8 +150,30 @@ export default function Home() {
             {jobs.map((job) => (
               <article
                 key={job.title}
-                className="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto]"
+                className="grid gap-5 md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-start md:gap-6"
               >
+                <a
+                  href={job.url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label={`${job.title} website`}
+                  className={`grid h-20 w-32 shrink-0 place-items-center rounded-md border border-border p-2.5 transition-colors hover:border-foreground ${
+                    job.isTransparent ? "bg-white" : "bg-secondary/50"
+                  }`}
+                >
+                  <Image
+                    src={job.logo}
+                    alt={`${job.title} logo`}
+                    width={112}
+                    height={72}
+                    className={
+                      job.isTransparent
+                        ? "h-full w-full object-contain"
+                        : "h-full w-full object-cover"
+                    }
+                  />
+                </a>
+
                 <div>
                   <h3 className="text-h3 font-display font-semibold">{job.title}</h3>
                   <p className="mt-1.5 text-foreground/70">{job.jobTitle}</p>
