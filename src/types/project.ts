@@ -2,14 +2,12 @@ export type Project = {
   slug: string;
   name: string;
   tagline: string;
-  logo: string;
+  description: string;
+  year: string;
+  status?: string;
+  stack: string[];
   projectUrl: {
     github: string;
     live?: string;
   };
-  coverImage?: {
-    image: string;
-    alt: string | null;
-  };
-  description: string;
 };

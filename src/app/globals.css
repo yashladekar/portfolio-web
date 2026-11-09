@@ -1,94 +1,317 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "tw-animate-css";
 
-body {
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------------------------------------------ */
+/*  Type — condensed poster display, neutral grotesque for everything  */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  --font-display: var(--font-anton), "Arial Narrow", Impact, sans-serif;
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+
+  --text-mega: clamp(2.25rem, 7.4vw, 7.5rem);
+  --text-mega--line-height: 1.16;
+  --text-mega--letter-spacing: -0.012em;
+
+  --text-h1: clamp(2.25rem, 6vw, 5.25rem);
+  --text-h1--line-height: 1.02;
+  --text-h1--letter-spacing: -0.012em;
+
+  --text-h2: clamp(1.75rem, 3.6vw, 3.25rem);
+  --text-h2--line-height: 0.94;
+  --text-h2--letter-spacing: -0.01em;
+
+  --text-h3: clamp(1.35rem, 2.2vw, 1.9rem);
+  --text-h3--line-height: 1;
+  --text-h3--letter-spacing: -0.005em;
+
+  --text-lede: clamp(1.0625rem, 1.25vw, 1.25rem);
+  --text-lede--line-height: 1.5;
+
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1.3;
+  --text-label--letter-spacing: 0.16em;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* ------------------------------------------------------------------ */
+/*  Color — two prints of one poster                                   */
+/*  light: bone paper · dark: cobalt field. Volt is the constant band  */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --paper: oklch(0.952 0.014 92);
+  --ink: oklch(0.185 0.045 264);
+  --muted: oklch(0.44 0.05 264);
+  --line: oklch(0.185 0.045 264 / 0.18);
+  --line-strong: oklch(0.185 0.045 264 / 0.55);
+
+  --volt: oklch(0.885 0.185 108);
+  --volt-ink: oklch(0.185 0.045 264);
+
+  --accent: oklch(0.4 0.19 264);
+  --accent-contrast: oklch(0.952 0.014 92);
+  --ring: oklch(0.4 0.19 264);
+
+  --radius: 0;
 }
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+.dark {
+  --paper: oklch(0.265 0.105 264);
+  --ink: oklch(0.955 0.012 92);
+  --muted: oklch(0.8 0.03 264);
+  --line: oklch(0.955 0.012 92 / 0.22);
+  --line-strong: oklch(0.955 0.012 92 / 0.6);
+
+  --volt: oklch(0.9 0.19 110);
+  --volt-ink: oklch(0.185 0.045 264);
+
+  --accent: oklch(0.9 0.19 110);
+  --accent-contrast: oklch(0.185 0.045 264);
+  --ring: oklch(0.9 0.19 110);
 }
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-volt: var(--volt);
+  --color-volt-ink: var(--volt-ink);
+  --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-ring: var(--ring);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Base                                                               */
+/* ------------------------------------------------------------------ */
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: var(--line);
   }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--volt);
+    color: var(--volt-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  /* focus rings against inverted bands */
+  .band-ink :focus-visible {
+    outline-color: var(--paper);
+  }
+
+  .band-volt :focus-visible {
+    outline-color: var(--volt-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Components — poster language                                       */
+/* ------------------------------------------------------------------ */
+
+@layer components {
+  /* wide-tracked caps label */
+  .label {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    line-height: 1.3;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* condensed display, all caps, tight */
+  .display {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: -0.012em;
+    line-height: 0.86;
+  }
+
+  /* inverted block inside display type */
+  .block-mark {
+    background-color: var(--volt-ink);
+    color: var(--volt);
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    padding: 0.02em 0.12em;
+    margin-inline: -0.02em;
+  }
+
+  /* spec-sheet row: label gutter + value, hairline-free and band-agnostic */
+  .spec {
+    display: grid;
+    gap: 0.5rem 2rem;
+    border-top: 3px solid color-mix(in oklab, currentColor 22%, transparent);
+    padding-block: 1.25rem;
+  }
+
+  @media (min-width: 48rem) {
+    .spec {
+      grid-template-columns: 12rem minmax(0, 1fr);
+      align-items: baseline;
+    }
+  }
+
+  /* work index row — floods volt on hover and focus */
+  .index-row {
+    border-top: 3px solid var(--line);
+    transition:
+      background-color 0.14s linear,
+      color 0.14s linear;
+  }
+
+  .index-row:hover,
+  .index-row:focus-visible {
+    background-color: var(--volt);
+    color: var(--volt-ink);
+    outline-offset: -3px;
+  }
+
+  /* scrolling ticker */
+  .ticker {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  .ticker-track {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: var(--ticker-gap, 2.5rem);
+    min-width: 100%;
+    padding-right: var(--ticker-gap, 2.5rem);
+    animation: ticker var(--ticker-duration, 44s) linear infinite;
+    will-change: transform;
+  }
+
+  .ticker:hover .ticker-track {
+    animation-play-state: paused;
+  }
+
+  /* shutters and marquee */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      [data-reveal] {
+        animation: shutter 1s linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 85%;
+      }
+    }
+  }
+
+  @keyframes shutter {
+    from {
+      clip-path: inset(0 0 100% 0);
+      transform: translate3d(0, 14px, 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes ticker {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  /* loading caret */
+  .caret {
+    animation: caret 0.9s steps(1) infinite;
+  }
+
+  @keyframes caret {
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Cursor — square bracket over interactive elements only             */
+/* ------------------------------------------------------------------ */
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  height: 18px;
+  width: 18px;
+  border: 2px solid #fff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.14s linear;
+}
+
+.cursor-dot[data-active="true"] {
+  opacity: 1;
+}
+
+html.has-cursor a,
+html.has-cursor button {
+  cursor: none;
 }
