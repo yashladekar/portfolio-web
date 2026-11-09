@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     template: `%s — ${siteConfig.author.name}`,
   },
   description: siteConfig.description,
+  other: {
+    "google-adsense-account": "xxxxxxxxx",
+  },
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.description,
