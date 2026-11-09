@@ -1,9 +1,12 @@
-const Loading = () => {
+export default function Loading() {
   return (
-    <div className="grid min-h-[calc(100vh-16rem)] place-items-center">
-      <div className="h-32 w-32 animate-spin rounded-full border-y-2 border-foreground dark:border-green-300"></div>
+    <div className="grid min-h-[70svh] place-items-center">
+      <p className="label flex items-center gap-2 text-muted-foreground">
+        Loading
+        <span aria-hidden="true" className="caret text-signal">
+          ▮
+        </span>
+      </p>
     </div>
   );
-};
-
-export default Loading;
+}

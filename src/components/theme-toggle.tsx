@@ -2,38 +2,25 @@
 
 import { useTheme } from "next-themes";
 
-import { cn } from "@/lib/utils";
-import { useIsMounted } from "@/hooks/is-mounted";
 import { Icons } from "@/components/icons/icons";
 
-type Props = {
-  className?: string;
-};
-
-const ThemeToggle = ({ className }: Props) => {
-  const isMounted = useIsMounted();
-  const { systemTheme, theme, setTheme } = useTheme();
-
-  const currentTheme = theme === "system" ? systemTheme : theme;
-
-  function toggleTheme() {
-    setTheme(currentTheme === "light" ? "dark" : "light");
-  }
+export default function ThemeToggle() {
+  const { resolvedTheme, setTheme } = useTheme();
 
   return (
     <button
-      aria-label="Toggle Theme"
-      onClick={toggleTheme}
-      className={cn(
-        "h-10 w-10 rounded-full border border-border p-2 transition-transform duration-300 dark:text-green-300",
-        isMounted() && (currentTheme === "light" ? "-rotate-180" : "rotate-0"),
-        className
-      )}
+      type="button"
+      aria-label="Toggle theme"
+      title="Toggle theme"
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+      className="label flex items-center gap-2 border border-border px-3 py-2 text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
     >
-      {isMounted() &&
-        (currentTheme === "light" ? <Icons.Sun /> : <Icons.Moon />)}
+      <Icons.Moon className="size-3.5 dark:hidden" />
+      <Icons.Sun className="hidden size-3.5 dark:block" />
+      <span className="hidden sm:inline">
+        <span className="dark:hidden">Dark</span>
+        <span className="hidden dark:inline">Light</span>
+      </span>
     </button>
   );
-};
-
-export default ThemeToggle;
+}

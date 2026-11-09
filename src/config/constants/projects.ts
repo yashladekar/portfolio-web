@@ -4,11 +4,13 @@ export const projects: Project[] = [
   {
     name: "Lattice",
     slug: "lattice",
-    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
+    year: "2026",
+    status: "Active",
     tagline:
-      "A local-first knowledge OS — block editor, infinite whiteboard, typed knowledge graph, spaced repetition and an optional AI layer. Web, desktop and mobile.",
+      "A local-first knowledge OS: block editor, infinite whiteboard, typed knowledge graph, spaced repetition and an optional AI layer. Web, desktop and mobile.",
     description:
       "Lattice combines a block editor, an infinite whiteboard, a typed knowledge graph, a capture inbox, spaced-repetition learning and an optional AI layer into one local-first workspace that runs on the web, as a Tauri desktop app and through an Expo mobile companion.",
+    stack: ["TypeScript", "Next.js", "Prisma", "PostgreSQL", "Tauri", "Expo", "IndexedDB"],
     projectUrl: {
       github: "https://github.com/yashladekar/lattice",
     },
@@ -17,11 +19,13 @@ export const projects: Project[] = [
   {
     name: "ReelForge",
     slug: "reelforge",
-    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg",
+    year: "2026",
+    status: "Active",
     tagline:
-      "AI faceless-reels studio: topic → script → scenes → narration → captions → FFmpeg render → publish, with budgets and checkpointed retries.",
+      "AI faceless-reels studio: topic to script, scenes, narration, captions and an FFmpeg render, with budgets and checkpointed retries.",
     description:
-      "A local-first, cost-aware creator workspace that turns a topic into a validated vertical short video — background jobs, provider adapters, budget accounting, a Video Studio for review and a Publishing Center for YouTube and manual exports.",
+      "A local-first, cost-aware creator workspace that turns a topic into a validated vertical short video: background jobs, provider adapters, budget accounting, a review studio and a publishing centre for YouTube and manual exports.",
+    stack: ["Next.js", "tRPC", "Prisma", "BullMQ", "Redis", "FFmpeg", "Better Auth"],
     projectUrl: {
       github: "https://github.com/yashladekar/video-generator",
     },
@@ -30,11 +34,12 @@ export const projects: Project[] = [
   {
     name: "AFTERMARKET",
     slug: "aftermarket",
-    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg",
+    year: "2026",
     tagline:
-      "Enterprise monorepo: a Spring Boot + Flowable process backend with a Next.js front end, sharing UI, ESLint and TypeScript configs.",
+      "Enterprise monorepo: a Spring Boot and Flowable process backend with a Next.js front end, sharing UI, ESLint and TypeScript configs.",
     description:
-      "A pnpm + Turborepo workspace for the AFTERMARKET project — a Java backend running embedded Flowable against an MCI reference schema, paired with a React 19 / Tailwind v4 web app.",
+      "A pnpm and Turborepo workspace — a Java backend running embedded Flowable against an MCI reference schema, paired with a React 19 and Tailwind v4 web app.",
+    stack: ["Java", "Spring Boot", "Flowable", "Next.js", "Turborepo", "Tailwind CSS"],
     projectUrl: {
       github: "https://github.com/yashladekar/aftermarket",
     },
@@ -43,11 +48,12 @@ export const projects: Project[] = [
   {
     name: "FGAC Reference App",
     slug: "fgac-reference-app",
-    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/graphql/graphql-plain.svg",
+    year: "2026",
     tagline:
       "Multi-tenant SaaS where OpenFGA is the single source of authorization truth — the UI projects itself from the user's permissions.",
     description:
-      "The same app looks and behaves differently for an Owner, Admin, Project Editor and Project Viewer: different navigation, routes, actions and data — unauthorized resources never leave the server. Built in a Next.js App Router + shadcn/ui Turborepo with Better Auth and Prisma.",
+      "The same app looks and behaves differently for an Owner, Admin, Project Editor and Project Viewer: different navigation, routes, actions and data. Unauthorized resources never leave the server. Built on the Next.js App Router with Better Auth and Prisma.",
+    stack: ["Next.js", "OpenFGA", "Better Auth", "Prisma", "PostgreSQL", "Turborepo"],
     projectUrl: {
       github: "https://github.com/yashladekar/gql-next-monorepo",
     },
@@ -56,11 +62,12 @@ export const projects: Project[] = [
   {
     name: "Aethon",
     slug: "aethon",
-    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg",
+    year: "2026",
     tagline:
       "A graph-first developer operating system: roadmap navigation, adaptive practice, immersive sandboxes and an AI mentor.",
     description:
       "An interactive learning platform built as a monorepo — learner web app, docs, a server with tRPC contracts and AI orchestration, admin tooling, and shared auth and Prisma packages.",
+    stack: ["Next.js", "tRPC", "Prisma", "Better Auth", "PostgreSQL"],
     projectUrl: {
       github: "https://github.com/yashladekar/Aethon",
     },
@@ -69,11 +76,12 @@ export const projects: Project[] = [
   {
     name: "plateEditor",
     slug: "plate-editor",
-    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg",
+    year: "2026",
     tagline:
-      "A rich-text editing playground built on Plate (Slate) inside a modern Next.js + shadcn/ui app.",
+      "A rich-text editing playground built on Plate and Slate inside a modern Next.js app.",
     description:
-      "An exploration of block rich-text editing on top of Plate and Slate — editor toolbars, slash-style menus and structured documents inside a Next.js app.",
+      "An exploration of block rich-text editing on top of Plate and Slate — editor toolbars, slash-style menus and structured documents.",
+    stack: ["Next.js", "Plate", "Slate", "TypeScript", "shadcn/ui"],
     projectUrl: {
       github: "https://github.com/yashladekar/plateEditor",
     },
@@ -82,11 +90,12 @@ export const projects: Project[] = [
   {
     name: "Rental Design System",
     slug: "rental-design-system",
-    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg",
+    year: "2026",
     tagline:
       "Shared UI kit, components and theme tokens behind my rental and fleet products.",
     description:
       "A Next.js design system package that centralises components, theming and styling conventions so rental and fleet applications stay visually consistent.",
+    stack: ["Next.js", "Tailwind CSS", "TypeScript", "Design tokens"],
     projectUrl: {
       github: "https://github.com/yashladekar/rental-design-system",
     },
@@ -95,11 +104,12 @@ export const projects: Project[] = [
   {
     name: "FleetHub",
     slug: "fleethub",
-    logo: "https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg",
+    year: "2026",
     tagline:
-      "Rental-fleet operations front end wired to an existing SSO/session backend with JWT cookie auth.",
+      "Rental-fleet operations front end wired to an existing SSO session backend with JWT cookie auth.",
     description:
-      "A Next.js front end (FleetHub) integrated with an existing SSO/session flow — configurable app identity, JWT session cookie handling, and login and logout wiring.",
+      "A Next.js front end integrated with an existing SSO and session flow — configurable app identity, JWT session cookie handling, and login and logout wiring.",
+    stack: ["Next.js", "TypeScript", "JWT", "SSO"],
     projectUrl: {
       github: "https://github.com/yashladekar/production-rental-2",
     },

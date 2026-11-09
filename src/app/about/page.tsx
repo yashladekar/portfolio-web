@@ -1,81 +1,121 @@
 import { Metadata } from "next";
-import { Quote } from "lucide-react";
 
-import { tools } from "@/config/constants";
+import { projects, tools } from "@/config/constants";
 import { siteConfig } from "@/config";
+import { ProjectRow } from "@/components/project-row";
 
 export const metadata: Metadata = {
-    title: "About",
+  title: "About",
+  description: `About ${siteConfig.author.name} — full-stack engineer, open-source builder.`,
+  openGraph: {
+    title: `About — ${siteConfig.author.name}`,
+    url: `${siteConfig.url}/about`,
+    description: `About ${siteConfig.author.name}.`,
+  },
 };
 
+const nowSlugs = ["lattice", "reelforge"];
+
 export default function About() {
-    return (
-        <main className="relative mx-auto max-w-3xl px-6 md:px-16 lg:mt-28 lg:max-w-7xl">
-            <section className="relative max-w-3xl duration-700 animate-in slide-in-from-top-full">
-                <h1 className="mb-8 text-3xl font-black tracking-tight sm:text-5xl lg:leading-tight">
-                    I&apos;m {siteConfig.author.name}. I live in India, where I build
-                    the future.
-                </h1>
+  const nowBuilding = nowSlugs
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter((project): project is NonNullable<typeof project> => Boolean(project));
 
-                <div className="font-sans leading-relaxed text-foreground/60">
-                    I am a self-driven, career-oriented software developer,
-                    specializing in full-stack development with TypeScript,
-                    React/Next.js, Java and Spring Boot — and a firm believer in open
-                    source.
-                    <br />
-                    <br />I strongly believe in continuous learning and improving
-                    myself, so I try my best to learn in any situation possible,
-                    unfavorable or not — always working to expand my knowledge and
-                    sharpen my development skills.
-                    <blockquote className="relative my-8 overflow-hidden rounded-md border bg-secondary/50 p-4 pr-12 tracking-tight lg:py-6 lg:pl-6">
-                        <Quote
-                            className="absolute -right-4 -top-6 -z-10 h-24 w-24 -rotate-12 text-secondary duration-1000 animate-in slide-in-from-left-full"
-                            aria-hidden="true"
-                        />
-                        If you ever spot me in the wild, don&apos;t hesitate to say hello!
-                        Let&apos;s grab a drink and geek-out over the latest advancements
-                        in development or discuss our favorite programming
-                        language.
-                    </blockquote>
-                </div>
-            </section>
+  return (
+    <div className="mx-auto w-full max-w-[1440px] px-5 md:px-10">
+      <header className="max-w-[64ch] pb-14 pt-14 md:pb-20 md:pt-24">
+        <p className="label text-muted-foreground" data-reveal>
+          03 — About
+        </p>
+        <h1 className="mt-6 text-h1 font-display font-semibold" data-reveal>
+          Full-stack engineer, based in India, building in the open.
+        </h1>
+      </header>
 
-            {/* Usage  */}
-            <section className="mt-16 max-w-2xl">
-                <div className="mb-8">
-                    <h2 className="mb-4 text-4xl font-bold tracking-tight">Usage</h2>
+      <section className="grid gap-12 border-t border-border py-14 md:grid-cols-[14rem_minmax(0,1fr)] md:py-20">
+        <h2 className="label text-muted-foreground" data-reveal>
+          Profile
+        </h2>
+        <div
+          className="max-w-[68ch] space-y-6 text-lede text-foreground/80"
+          data-reveal
+        >
+          <p>
+            I&apos;m a full-stack developer who owns products end to end: the data
+            model, the API, the interface, and the deployment that keeps it honest.
+            By day I build enterprise software at Tata Technologies with Java and
+            Spring Boot; the rest of the time I&apos;m writing TypeScript — local-first
+            tools, AI pipelines, and the design systems underneath them.
+          </p>
+          <p>
+            I believe in continuous learning and I&apos;d rather ship something real
+            than talk about it. That habit has left me with 100+ public repositories
+            on GitHub, and a preference for products I can run on my own machine.
+          </p>
+          <p>
+            If you ever spot me in the wild, say hello. I&apos;m always up for a
+            conversation about knowledge graphs, build pipelines, or the perfect
+            type scale.
+          </p>
+        </div>
+      </section>
 
-                    <p className="max-w-xl text-foreground/60">
-                        Tools, technologies and gadgets I use on a daily basis but not
-                        limited to.
-                    </p>
-                </div>
+      <section className="border-t border-border py-14 md:py-20">
+        <div className="flex items-end justify-between">
+          <h2 className="label text-muted-foreground" data-reveal>
+            Now
+          </h2>
+          <p className="label hidden text-muted-foreground sm:block" data-reveal>
+            Building
+          </p>
+        </div>
+        <ul className="mt-10 border-b border-border">
+          {nowBuilding.map((project, i) => (
+            <li key={project.slug} data-reveal>
+              <ProjectRow project={project} index={i + 1} />
+            </li>
+          ))}
+        </ul>
+      </section>
 
-                {tools.map(({ heading, items }, i) => (
-                    <div key={i} className="my-4">
-                        <h3 className="text-2xl font-semibold">{heading}</h3>
+      <section className="border-t border-border py-14 md:py-20">
+        <h2 className="label text-muted-foreground" data-reveal>
+          Toolkit
+        </h2>
 
-                        {items.map(({ name, url, description, icon: Icon }, i) => (
-                            <li key={i} className="flex items-center gap-x-2 p-2">
-                                <Icon className="h-5 min-h-fit w-5 min-w-fit" />
-                                <a
-                                    href={url}
-                                    rel="noreferrer noopener"
-                                    target="_blank"
-                                    aria-label={name}
-                                    className="my-auto min-w-fit leading-3 text-blue-500 underline underline-offset-4 duration-500 animate-in zoom-in-50 hover:underline dark:text-blue-400"
-                                >
-                                    {name}
-                                </a>
-                                -
-                                <span className="truncate text-foreground/60 duration-500 animate-in zoom-in-50">
-                                    {description}
-                                </span>
-                            </li>
-                        ))}
-                    </div>
+        <div className="mt-10">
+          {tools.map(({ heading, items }) => (
+            <div
+              key={heading}
+              className="grid gap-6 border-t border-border py-8 md:grid-cols-[14rem_minmax(0,1fr)]"
+              data-reveal
+            >
+              <h3 className="label text-muted-foreground">{heading}</h3>
+              <ul className="flex flex-wrap gap-x-9 gap-y-5">
+                {items.map(({ name, url, description, icon: Icon }) => (
+                  <li key={name}>
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      title={description}
+                      className="group flex items-center gap-2.5"
+                    >
+                      <Icon
+                        aria-hidden="true"
+                        className="size-4 opacity-40 grayscale transition duration-300 group-hover:opacity-100 group-hover:grayscale-0"
+                      />
+                      <span className="text-sm text-foreground/80 transition-colors group-hover:text-signal-ink">
+                        {name}
+                      </span>
+                    </a>
+                  </li>
                 ))}
-            </section>
-        </main>
-    );
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
 }

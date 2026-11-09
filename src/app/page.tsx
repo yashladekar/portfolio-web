@@ -1,102 +1,184 @@
-import Image from "next/image";
+import Link from "next/link";
+
 import { siteConfig } from "@/config";
-import { jobs } from "@/config/constants";
-import { Icons } from "@/components/icons/icons";
+import { jobs, projects } from "@/config/constants";
+import { LocalClock } from "@/components/local-clock";
+import { ProjectRow } from "@/components/project-row";
+
+const stackStrip = [
+  "TypeScript",
+  "Java",
+  "Spring Boot",
+  "Next.js",
+  "React",
+  "Prisma",
+  "PostgreSQL",
+  "tRPC",
+  "Tailwind CSS",
+  "Tauri",
+  "Expo",
+  "FFmpeg",
+  "OpenFGA",
+  "Redis",
+];
+
+const heroLinks = [
+  ...Object.values(siteConfig.links).map(({ title, href }) => ({ title, href })),
+  { title: "Email", href: `mailto:${siteConfig.author.email}` },
+];
+
 export default function Home() {
   return (
-    <div className="mx-auto max-w-7xl px-6 md:px-16">
-      {/* heroSection */}
-      <section className="flex flex-col items-start justify-between gap-x-12 xl:flex-row xl:items-center xl:justify-center">
-        <div className="max-w-2xl duration-700 animate-in slide-in-from-top-full lg:max-w-2xl">
-          <h1 className="mb-6 min-w-full text-3xl font-black leading-tight tracking-tight sm:text-5xl lg:min-w-[700px] lg:leading-[3.7rem]">
-            Software engineer & <br />
-            open-source enthusiast
+    <>
+      {/* Hero */}
+      <section className="mx-auto flex w-full max-w-[1440px] flex-col px-5 pb-16 pt-14 md:min-h-[84svh] md:justify-between md:px-10 md:pb-12 md:pt-20">
+        <div className="flex items-center justify-between" data-reveal>
+          <p className="label text-muted-foreground">Portfolio — 2026</p>
+          <p className="label hidden items-center gap-2.5 text-muted-foreground sm:flex">
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-signal" />
+            Available for work
+          </p>
+        </div>
+
+        <div className="mt-20 md:mt-24">
+          <h1 className="max-w-[17ch] text-display font-display font-semibold">
+            I build software that{" "}
+            <span className="marker">solves real problems</span>.
           </h1>
-          <p className="text-base leading-relaxed text-foreground/60">
-            I&apos;m a full-stack software engineer based in India. I love
-            building products end to end — from local-first knowledge tools to
-            AI video pipelines — and contributing back to the open-source
-            community.
+
+          <p
+            className="mt-10 max-w-[60ch] text-lede text-muted-foreground"
+            data-reveal
+          >
+            Full-stack engineer at Tata Technologies, based in India. I work across
+            TypeScript, Java and Spring Boot, and I ship products end to end, from
+            the data model to the interface.
           </p>
 
-          <ul className="my-10 flex flex-wrap items-center gap-x-5 gap-y-4 duration-700 animate-in slide-in-from-bottom-full">
-            {
-              Object.values(siteConfig.links).map(({ title, href }, i) => (
-                <li key={i}>
-                  <a href={href}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                    className="group flex item-center border-b border-border"
-                  >
-                    <span className="text-sm font-semibold text-foreground/80 group-hover:text-primary">
-                      {title}
-                    </span>
-                  </a>
-                </li>
-              ))
-            }
+          <ul className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4" data-reveal>
+            {heroLinks.map(({ title, href }) => (
+              <li key={title}>
+                <a
+                  href={href}
+                  {...(href.startsWith("mailto")
+                    ? {}
+                    : { target: "_blank", rel: "noreferrer noopener" })}
+                  className="label inline-flex items-baseline gap-1.5 text-foreground/80 transition-colors hover:text-signal-ink"
+                >
+                  {title}
+                  <span aria-hidden="true">↗</span>
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
-        <Icons.Hero className="h-full w-full duration-700 animate-in slide-in-from-bottom-1/3 lg:h-[450px] lg:w-[450px]" />
+
+        <div className="mt-20 flex items-end justify-between" data-reveal>
+          <p className="label text-muted-foreground">Scroll ↓</p>
+          <p className="label flex items-center gap-2 text-muted-foreground">
+            <LocalClock />
+            <span aria-hidden="true" className="size-1 bg-signal" />
+            IST
+          </p>
+        </div>
       </section>
 
-      {/* workSection */}
-      <section className="duration-700 animate-in slide-in-from-bottom-full">
-        <div className="mb-16">
-          <h2 className="mb-4 text-4xl font-bold tracking-tight">
-            Work Experience
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
-          {jobs.map((data, i) => (
+      {/* Stack strip */}
+      <section
+        aria-label="Core technologies"
+        className="border-y border-border bg-foreground py-4 text-background"
+      >
+        <div className="marquee" style={{ ["--marquee-duration" as string]: "52s" }}>
+          {[0, 1].map((copy) => (
             <div
-              key={i}
-              className="relative flex max-w-2xl items-start gap-x-4 before:absolute before:bottom-0 before:left-9 before:top-[5rem] before:h-[calc(100%-70px)] before:w-[1px] before:bg-muted lg:gap-x-6"
+              key={copy}
+              className="marquee-track"
+              aria-hidden={copy === 1 ? "true" : undefined}
             >
-              <a
-                href={data.url}
-                rel="noreferrer noopener"
-                target="_blank"
-                className={`relative grid min-h-[80px] min-w-[80px] place-items-center text-clip rounded-md border border-border p-2 ${
-                  data.isTransparent ? "bg-white" : "bg-secondary/50"
-                }`}
-              >
-                <Image
-                  src={data.logo}
-                  className={`duration-300 ${
-                    data.isTransparent ? "object-contain" : "object-cover"
-                  }`}
-                  alt={`${data.title} logo`}
-                  width={50}
-                  height={50}
-                />
-              </a>
-
-              <div className="flex flex-col items-start">
-                <h3 className="text-xl font-bold">{data.title}</h3>
-
-                <p>{data.jobTitle}</p>
-
-                <time className="mt-2 text-sm uppercase tracking-widest text-foreground/40">
-                  {data.startDate && `${data.startDate} - `}
-                  {data.endDate ? (
-                    data.endDate
-                  ) : (
-                    <span className="text-green-600 dark:text-green-300">
-                      Present
-                    </span>
-                  )}
-                </time>
-                <p className="my-4 tracking-tight text-foreground/60 hover:text-foreground/75">
-                  {data.description}
-                </p>
-              </div>
+              {stackStrip.map((item) => (
+                <span key={item} className="label flex items-center gap-6">
+                  <span className="whitespace-nowrap">{item}</span>
+                  <span aria-hidden="true" className="size-1 shrink-0 bg-signal" />
+                </span>
+              ))}
             </div>
           ))}
         </div>
       </section>
 
-    </div>
+      {/* Selected work */}
+      <section className="mx-auto w-full max-w-[1440px] px-5 md:px-10">
+        <div className="flex items-end justify-between py-16 md:py-24">
+          <div data-reveal>
+            <p className="label text-muted-foreground">01 — Selected work</p>
+            <h2 className="mt-5 text-h2 font-display font-semibold">
+              Things I&apos;ve built
+            </h2>
+          </div>
+          <Link
+            href="/projects"
+            className="label hidden text-muted-foreground transition-colors hover:text-foreground md:block"
+          >
+            All projects ↗
+          </Link>
+        </div>
+
+        <ul className="border-b border-border">
+          {projects.map((project, i) => (
+            <li key={project.slug}>
+              <ProjectRow project={project} index={i + 1} />
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Experience */}
+      <section className="mt-24 border-t border-border md:mt-32">
+        <div className="mx-auto grid w-full max-w-[1440px] gap-12 px-5 py-16 md:grid-cols-[minmax(0,1fr)_2fr] md:px-10 md:py-24">
+          <div data-reveal>
+            <p className="label text-muted-foreground">02 — Experience</p>
+            <p className="mt-6 max-w-[28ch] text-sm text-foreground/70">
+              Enterprise software by day, open source the rest of the time.
+            </p>
+          </div>
+
+          <div data-reveal>
+            {jobs.map((job) => (
+              <article
+                key={job.title}
+                className="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto]"
+              >
+                <div>
+                  <h3 className="text-h3 font-display font-semibold">{job.title}</h3>
+                  <p className="mt-1.5 text-foreground/70">{job.jobTitle}</p>
+                  <p className="mt-5 max-w-[58ch] text-sm leading-relaxed text-foreground/70">
+                    {job.description}
+                  </p>
+                </div>
+                <p className="label text-muted-foreground md:text-right">
+                  {job.startDate ? `${job.startDate} — Present` : "Present"}
+                </p>
+              </article>
+            ))}
+
+            <div className="mt-12 border-t border-border pt-8">
+              <p className="max-w-[58ch] text-sm leading-relaxed text-foreground/70">
+                Outside work I maintain 100+ public repositories on GitHub. The
+                projects above started there, and everything is open source.
+              </p>
+              <a
+                href={siteConfig.links.github.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="label mt-6 inline-flex items-baseline gap-2 text-foreground/80 transition-colors hover:text-signal-ink"
+              >
+                github.com/yashladekar
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
