@@ -81,7 +81,9 @@ export default function RootLayout({
             Skip to content
           </a>
 
-          <SiteHeader />
+          <header>
+            <SiteHeader />
+          </header>
           <main id="main">{children}</main>
           <Footer />
         </ThemeProvider>
